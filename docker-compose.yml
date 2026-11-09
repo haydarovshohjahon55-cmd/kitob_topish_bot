@@ -1,0 +1,11 @@
+services:
+  bot:
+    build: .
+    container_name: kitob_bot
+    env_file: .env
+    environment:
+      DB_PATH: /app/data/books.db
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    restart: unless-stopped
